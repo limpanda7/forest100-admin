@@ -2,10 +2,10 @@ import React from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
-import { 
+import {
+    CalendarContainer,
     CalenderHeaderContainer,
-    DropdownContainer,
-    AppointmentButton
+    DropdownContainer
 } from '../styledComponent/index';
 
 import { yearOptions, monthOptions } from '../constant/index';
@@ -23,6 +23,12 @@ function CalenderHeader( props ) {
     }
 
     return (
+        <>
+        <div>
+            <p>성인/유아/반려견</p>
+            <p>바 = 바베큐</p>
+            <p>침 = 추가침구</p>
+        </div>
       <CalenderHeaderContainer>
           <DropdownContainer>
             <Dropdown 
@@ -37,6 +43,7 @@ function CalenderHeader( props ) {
             />
           </DropdownContainer>
       </CalenderHeaderContainer>
+            </>
     );
   }
   

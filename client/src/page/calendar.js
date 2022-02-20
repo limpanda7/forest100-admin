@@ -10,7 +10,7 @@ import {
     CalenderWeekDayContainer,
     CalenderWeekContainer,
     CalendarContainerBody,
-    CalendarContainer,
+    CalendarContainer, CalenderHeaderContainer,
 } from '../styledComponent/index';
 import {
     weekArray,
@@ -21,7 +21,7 @@ import axios from "axios";
 function Calendar() {
     const [selectedYear, setSelectedYear] = useState(2022);
     const [selectedMonth, setSelectedMonth] = useState(0);
-    const [date, setDate] = useState([]);
+    const [info, setInfo] = useState([]);
 
     const startOfDay = moment().year(selectedYear).month(selectedMonth).startOf("month").format('ddd');
     const monthSize = parseInt(moment().year(selectedYear).month(selectedMonth).endOf("month").format('DD'));
@@ -42,11 +42,18 @@ function Calendar() {
     const getReserved = () => {
         axios.get('/api/getReserved2')
             .then((res) => {
-                let tempArr = [];
+                let infoArr = [];
                 for (const element of res.data) {
-                    tempArr.push(moment(element.date).format('YYYY-MM-DD'));
+                    let tempObj = {};
+                    tempObj['date'] = moment(element.date).format('YYYYMD');
+                    tempObj['name'] = element.name || '사용불가';
+                    tempObj['people'] = `${String(element.adult)}/${String(element.baby)}/${String(element.dog)}`;
+                    tempObj['barbecue'] = String(element.barbecue);
+                    tempObj['bedding'] = String(element.bedding)
+                    tempObj['price'] = Number(element.price).toLocaleString();
+                    infoArr.push(tempObj);
                 }
-                setDate(tempArr);
+                setInfo(infoArr);
             });
     }
 
@@ -83,6 +90,7 @@ function Calendar() {
                                         date={ i - startIndex + 1 }
                                         month={ selectedMonth + 1 }
                                         year={ selectedYear }
+                                        info={ info }
                                     />
                                 </CalenderDateDayContainerActive> :
                                 <CalenderDateDayContainerDisable key={i}></CalenderDateDayContainerDisable>

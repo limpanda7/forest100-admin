@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Calendar from "./page/calendar";
 import reportWebVitals from './reportWebVitals';
+import Calendar from "./page/calendar";
+import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>

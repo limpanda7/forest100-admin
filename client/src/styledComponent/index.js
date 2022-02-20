@@ -13,6 +13,10 @@ export const DateContainer = styled.div`
     font-size: 12px;
 `
 
+export const DateContainerInfo = styled.div`
+    font-size: 11px;
+`
+
 export const DateApointmentContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -23,7 +27,7 @@ export const CalendarContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-item: center;
-    margin: 15px;
+    margin: 5px;
 `
 
 export const CalendarContainerBody = styled.div`
@@ -52,13 +56,13 @@ export const CalenderDateContainer = styled.div`
 export const CalenderDateDayContainerDisable = styled.div`
   margin: 1px;
   text-align: center;
-  height: 80px;
+  height: 100px;
 `
 export const CalenderDateDayContainerActive = styled.div`
   margin: 1px;
   border: 1px solid gray;
   text-align: center;
-  height: 80px;
+  height: 100px;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
