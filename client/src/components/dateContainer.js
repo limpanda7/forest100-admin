@@ -1,5 +1,5 @@
 import React from 'react';
-import { DateDataContainer, DateContainer, DateApointmentContainer } from '../../styledComponent/index'
+import { DateDataContainer, DateContainer } from '../styledComponent/index'
 
 function DateComponent(props) {
 

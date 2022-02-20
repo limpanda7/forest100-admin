@@ -1,3 +1,4 @@
+import React from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
@@ -5,9 +6,9 @@ import {
     CalenderHeaderContainer,
     DropdownContainer,
     AppointmentButton
-} from '../../styledComponent/index';
+} from '../styledComponent/index';
 
-import { yearOptions, monthOptions } from '../../constant/index';
+import { yearOptions, monthOptions } from '../constant/index';
 
 
 function CalenderHeader( props ) {
@@ -19,10 +20,6 @@ function CalenderHeader( props ) {
 
     const onMonthSelect = ( date ) => {
         props.onMonthSelect( date )
-    }
-
-    const openModal = () => {
-        props.openModal()
     }
 
     return (
